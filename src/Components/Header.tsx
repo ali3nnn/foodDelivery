@@ -10,6 +10,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import logo from '../assets/logo.png';
 import { Routes, Route, Link } from "react-router-dom";
 import Restaurant from './Restaurant';
+import { Avatar } from '@mui/material';
 
 const hrefReset = {
     "textDecoration": "none",
@@ -33,16 +34,9 @@ const Header = () => {
             <AppBar position="static">
                 <Toolbar>
 
-                    {<IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="menu"
-                        sx={{ mr: 2 }}
-                    >
-                        <img src={logo} width="50" />
-                    </IconButton>}
-
+                    <div className="">
+                        <img src={logo} width="50" className="" />
+                    </div>
 
                     <div style={headerContainer}>
                         <Link to="/restaurant" style={hrefReset}>
@@ -57,17 +51,17 @@ const Header = () => {
                         </Link>
                     </div>
 
-                    {<IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="menu"
-                        sx={{ mr: 2 }}
-                    >
+                    {/* <div className="className">
                         <Link to="/contul-meu" style={hrefReset}>
-                            <AccountCircleIcon />
+                            <AccountCircleIcon size="medium" className="w-50" />
                         </Link>
-                    </IconButton>}
+                    </div> */}
+                    {/* @ts-ignore */}
+                    <Avatar size="medium">
+                        <Link to="/contul-meu" style={hrefReset}>
+                            <AccountCircleIcon className="w-50" />
+                        </Link>
+                    </Avatar>
 
                 </Toolbar>
             </AppBar>

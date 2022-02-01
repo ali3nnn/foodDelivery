@@ -1,14 +1,52 @@
 import React from 'react';
+import Cards from './Cards';
 
-const Restaurant = () => {
+const Restaurant = (props: any) => {
+
+    const items = [{
+        src: 'https://r.greatfood.ro/res/app_category_list/menu_categories/0001/01/f54d906c064c2529dec379730c06e3c322639c38.jpeg',
+        title: 'title',
+        desc: 'desc desc desc desc desc desc descdescdesc desc desc desc'
+    }, {
+        src: 'https://r.greatfood.ro/res/app_category_list/menu_categories/0001/01/f54d906c064c2529dec379730c06e3c322639c38.jpeg',
+        title: 'title',
+        desc: 'desc desc desc desc desc desc descdescdesc desc desc desc'
+    }, {
+        src: 'https://r.greatfood.ro/res/app_category_list/menu_categories/0001/01/f54d906c064c2529dec379730c06e3c322639c38.jpeg',
+        title: 'title',
+        desc: 'desc desc desc desc desc desc descdescdesc desc desc desc'
+    }, {
+        src: 'https://r.greatfood.ro/res/app_category_list/menu_categories/0001/01/f54d906c064c2529dec379730c06e3c322639c38.jpeg',
+        title: 'title',
+        desc: 'desc desc desc desc desc desc descdescdesc desc desc desc'
+    }, {
+        src: 'https://r.greatfood.ro/res/app_category_list/menu_categories/0001/01/f54d906c064c2529dec379730c06e3c322639c38.jpeg',
+        title: 'title',
+        desc: 'desc desc desc desc desc desc descdescdesc desc desc desc'
+    }, {
+        src: 'https://r.greatfood.ro/res/app_category_list/menu_categories/0001/01/f54d906c064c2529dec379730c06e3c322639c38.jpeg',
+        title: 'title',
+        desc: 'desc desc desc desc desc desc descdescdesc desc desc desc'
+    }, {
+        src: 'https://r.greatfood.ro/res/app_category_list/menu_categories/0001/01/f54d906c064c2529dec379730c06e3c322639c38.jpeg',
+        title: 'title',
+        desc: 'desc desc desc desc desc desc descdescdesc desc desc desc'
+    }, {
+        src: 'https://r.greatfood.ro/res/app_category_list/menu_categories/0001/01/f54d906c064c2529dec379730c06e3c322639c38.jpeg',
+        title: 'title',
+        desc: 'desc desc desc desc desc desc descdescdesc desc desc desc'
+    }, {
+        src: 'https://r.greatfood.ro/res/app_category_list/menu_categories/0001/01/f54d906c064c2529dec379730c06e3c322639c38.jpeg',
+        title: 'title',
+        desc: 'desc desc desc desc desc desc descdescdesc desc desc desc'
+    }]
+
     return (
-        <div className="bg-gradient-to-r from-blue-500 to-cyan-500 relative block p-10 grid grid-cols-5 gap-5">
-            <div className="bg-green-800 p-3">FOOD 1</div>
-            <div className="bg-green-800 p-3">FOOD 1</div>
-            <div className="bg-green-800 p-3">FOOD 1</div>
-            <div className="bg-green-800 p-3">FOOD 1</div>
-            <div className="bg-green-800 p-3">FOOD 1</div>
-            <div className="bg-green-800 p-3">FOOD 1</div>
+        <div className="w-[60%] m-auto">
+            <h1 className="text-left px-10 pt-10 font-bold text-5xl">Categorii</h1>
+            <div className="relative p-10 grid grid-cols-4 gap-6">
+                {items.map(item => <Cards data={item} />)}
+            </div>
         </div>
     );
 }

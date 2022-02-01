@@ -4,8 +4,10 @@ import './Banner.scss';
 
 const Banner = (props: any) => {
     return (
-        <div className="banner-wrapper relative block bg-gradient-to-r from-cyan-500 to-blue-500" style={props.data.src && {
-            backgroundImage: `url(${props.data.src})`,
+        <div className="banner-wrapper relative block bg-gradient-to-r from-cyan-500 to-blue-500" style={{
+            ...(props.data.src && {
+                backgroundImage: `url(${props.data.src})`,
+            }),
         }}>
             <div className="banner-inner absolute block bottom-10 top-10 left-0 right-0 grid grid-cols-1 place-items-center">
                 <div className="restaurant-name">
