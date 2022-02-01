@@ -25,7 +25,7 @@ function App() {
         <Route path="/istoric" element={<OrderHistory />} />
         <Route path="/contul-meu" element={<Account />} />
       </Routes>
-    </div>
+    </div >
   );
 }
 
