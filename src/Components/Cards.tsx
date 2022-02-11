@@ -2,7 +2,7 @@ import React from 'react';
 
 const Cards = (props: any) => {
     return (
-        <div className="block w-[100%] max-w-[250px] m-auto relative hover:cursor-pointer bg-white hover:z-10 transition-all hover:scale-105">
+        <div className=" w-[100%] m-auto relative hover:cursor-pointer bg-white hover:z-10 transition-all hover:scale-105">
             <div className="block h-40 rounded-[32px] mb-3"
                 style={{
                     ...(props.data.src && { backgroundImage: `url('${props.data.src}')` }),
@@ -10,7 +10,7 @@ const Cards = (props: any) => {
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}></div>
-            {props.data.title && <h3 className="text-left text-xl block capitalize font-semibold">{props.data.title}</h3>}
+            {props.data.title && <h3 className="text-left text-xl block font-semibold">{props.data.title}</h3>}
             {props.data.desc && <p className="text-left block text-slate-500">{props.data.desc}</p>}
             {!props.data.desc && <p className="text-left block text-white">Text<br />Replacer</p>}
         </div>

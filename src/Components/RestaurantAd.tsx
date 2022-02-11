@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Carousel from 'react-material-ui-carousel'
 import { Paper, Button } from '@mui/material'
 import Card from '@mui/material/Card';
@@ -16,50 +16,30 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { CardActionArea } from '@mui/material';
-
 import { Component } from 'react';
+import Cards from './Cards';
+import axios from 'axios';
 
-class RestaurantAd extends Component {
-    // state = {
-    //     activeSlideIndex: 0,
-    // };
+const RestaurantAd = () => {
 
-    // setActiveSlideIndex = (newActiveSlideIndex: any) => {
-    //     this.setState({
-    //         activeSlideIndex: newActiveSlideIndex,
-    //     });
-    // };
+    const [offers, setOffers] = useState([]);
 
-    render() {
-        return (
-            <Carousel
-                // @ts-ignore
-                // activeSlideIndex={this.state.activeSlideIndex}
-                // onRequestChange={this.setActiveSlideIndex}
-                itemsToShow={10}
-                itemsToScroll={3}
-                updateOnItemClick
-                containerProps={{
-                    style: {
-                        width: "300px",
-                        justifyContent: "space-between"
-                    }
-                }}
-                speed={400}
-            >
-                <div style={{ width: 300, height: 300, display: 'inline-block', background: 'red' }}>slide 0</div>
-                <div style={{ width: 300, height: 300, display: 'inline-block', background: 'red' }}>slide 1</div>
-                <div style={{ width: 300, height: 300, display: 'inline-block', background: 'red' }}>slide 2</div>
-                <div style={{ width: 300, height: 300, display: 'inline-block', background: 'red' }}>slide 3</div>
-                <div style={{ width: 300, height: 300, display: 'inline-block', background: 'red' }}>slide 4</div>
-                <div style={{ width: 300, height: 300, display: 'inline-block', background: 'red' }}>slide 5</div>
-                <div style={{ width: 300, height: 300, display: 'inline-block', background: 'red' }}>slide 6</div>
-                <div style={{ width: 300, height: 300, display: 'inline-block', background: 'red' }}>slide 7</div>
-                <div style={{ width: 300, height: 300, display: 'inline-block', background: 'red' }}>slide 8</div>
-                <div style={{ width: 300, height: 300, display: 'inline-block', background: 'red' }}>slide 9</div>
-            </Carousel>
-        );
-    }
+    // @ts-ignore
+    useEffect(() => {
+        setTimeout(async () => {
+            const result = await axios('https://ft7mpjhh6c.execute-api.us-east-2.amazonaws.com/default/get-categories');
+            setOffers(result.data.body);
+        }, 1000)
+    }, []);
+
+    return (
+        <div className="w-[60%] m-auto">
+            <h1 className="text-left px-10 pt-10 font-bold text-5xl">Oferte</h1>
+            <div className="relative p-10 grid grid-cols-3 gap-6">
+                {offers.map(item => <Cards className="" data={item} />)}
+            </div>
+        </div>
+    );
 }
 
 export default RestaurantAd;
